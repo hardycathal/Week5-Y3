@@ -13,4 +13,8 @@ public class ProductService {
         myList.add(product);
         return myList;
     }
+
+    public List<Product> getProducts(Product product){
+        return myList;
+    }
 }
