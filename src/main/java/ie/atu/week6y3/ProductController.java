@@ -1,5 +1,7 @@
 package ie.atu.week6y3;
 
+import jakarta.validation.Valid;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,10 +21,11 @@ public class ProductController {
 
 
     @PostMapping("/newProduct")
-    public List<Product> newProduct(@RequestBody Product product){
+    public List<Product> newProduct(@Valid @RequestBody Product product){
 
         // business logic to ass this to a database
         // return list of ll products from database
+
         return myProduct.addProduct(product);
     }
 
