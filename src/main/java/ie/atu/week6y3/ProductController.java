@@ -2,10 +2,7 @@ package ie.atu.week6y3;
 
 import jakarta.validation.Valid;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,5 +29,15 @@ public class ProductController {
     @GetMapping("/getProducts")
     public List<Product> getProducts(Product product){
         return myProduct.getProducts(product);
+    }
+
+    @PutMapping("/updateProduct")
+    public List<Product> updateProduct(@Valid @RequestBody Product product){
+        return myProduct.updateProduct(product);
+    }
+
+    @DeleteMapping("/deleteProduct/{id}")
+    public List<Product> deleteProduct(@PathVariable int id){
+        return myProduct.deleteProduct(id);
     }
 }
